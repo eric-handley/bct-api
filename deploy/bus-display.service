@@ -1,0 +1,22 @@
+[Unit]
+Description=Bus Display Realtime API container
+Requires=docker.service
+After=network-online.target docker.service
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+Environment=IMAGE=bus-display:latest
+Environment=PORT=8000
+ExecStartPre=-/usr/bin/docker rm -f bus-display
+ExecStart=/usr/bin/docker run \
+  --name bus-display \
+  --env PORT=$PORT \
+  --publish $PORT:8000 \
+  --rm \
+  $IMAGE
+ExecStop=/usr/bin/docker stop bus-display
+
+[Install]
+WantedBy=multi-user.target
