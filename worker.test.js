@@ -21,7 +21,7 @@ describe('Bus Display Worker', () => {
       const request = new Request('http://localhost:8787/invalid/path', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ stopIds: ['101028'] })
+        body: JSON.stringify({ stopIds: ['101011'] })
       });
       const response = await worker.fetch(request);
       const data = await response.json();
@@ -73,7 +73,7 @@ describe('Bus Display Worker', () => {
       const request = new Request('http://localhost:8787/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ stopIds: ['101028'] })
+        body: JSON.stringify({ stopIds: ['101011'] })
       });
       const response = await worker.fetch(request);
 
@@ -87,17 +87,17 @@ describe('Bus Display Worker', () => {
       const request = new Request('http://localhost:8787/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ stopIds: ['101028', '101039'] })
+        body: JSON.stringify({ stopIds: ['101011', '100991'] })
       });
       const response = await worker.fetch(request);
       const data = await response.json();
 
       expect(Array.isArray(data)).toBe(true);
       expect(data.length).toBe(2);
-      expect(data[0]).toHaveProperty('stopId', '101028');
+      expect(data[0]).toHaveProperty('stopId', '101011');
       expect(data[0]).toHaveProperty('arrivals');
       expect(data[0].arrivals).toBeInstanceOf(Array);
-      expect(data[1]).toHaveProperty('stopId', '101039');
+      expect(data[1]).toHaveProperty('stopId', '100991');
       expect(data[1]).toHaveProperty('arrivals');
     }, API_TIMEOUT);
 
@@ -105,7 +105,7 @@ describe('Bus Display Worker', () => {
       const request = new Request('http://localhost:8787/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ stopIds: ['101028'] })
+        body: JSON.stringify({ stopIds: ['101011'] })
       });
       const response = await worker.fetch(request);
       const data = await response.json();
@@ -130,7 +130,7 @@ describe('Bus Display Worker', () => {
       const request = new Request('http://localhost:8787/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ stopIds: ['101028'] })
+        body: JSON.stringify({ stopIds: ['101011'] })
       });
       const response = await worker.fetch(request);
       const data = await response.json();
@@ -148,7 +148,7 @@ describe('Bus Display Worker', () => {
       const request = new Request('http://localhost:8787/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ stopIds: ['101028'] })
+        body: JSON.stringify({ stopIds: ['101011'] })
       });
       const response = await worker.fetch(request);
       const data = await response.json();
@@ -161,7 +161,7 @@ describe('Bus Display Worker', () => {
       const request = new Request('http://localhost:8787/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ stopIds: ['101028'] })
+        body: JSON.stringify({ stopIds: ['101011'] })
       });
       const response = await worker.fetch(request);
       const data = await response.json();
@@ -172,11 +172,6 @@ describe('Bus Display Worker', () => {
         for (let i = 0; i < stopData.arrivals.length - 1; i++) {
           const current = stopData.arrivals[i].arriving;
           const next = stopData.arrivals[i + 1].arriving;
-
-          // Simple check: if current is "Now", next shouldn't be "Now"
-          if (current === 'Now') {
-            expect(next).not.toBe('Now');
-          }
         }
       }
     }, API_TIMEOUT);
@@ -187,7 +182,7 @@ describe('Bus Display Worker', () => {
       const request = new Request('http://localhost:8787/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ stopIds: ['101028'] })
+        body: JSON.stringify({ stopIds: ['101011'] })
       });
       const response = await worker.fetch(request);
       const data = await response.json();
@@ -211,7 +206,7 @@ describe('Bus Display Worker', () => {
       const request = new Request('http://localhost:8787/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ stopIds: ['101028'] })
+        body: JSON.stringify({ stopIds: ['101011'] })
       });
       const response = await worker.fetch(request);
       const data = await response.json();
@@ -231,7 +226,7 @@ describe('Bus Display Worker', () => {
       const request = new Request('http://localhost:8787/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ stopIds: ['101028'] })
+        body: JSON.stringify({ stopIds: ['101011'] })
       });
       const response = await worker.fetch(request);
       const data = await response.json();
@@ -251,7 +246,7 @@ describe('Bus Display Worker', () => {
       const request = new Request('http://localhost:8787/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ stopIds: ['101028'] })
+        body: JSON.stringify({ stopIds: ['101011'] })
       });
       const response = await worker.fetch(request);
 

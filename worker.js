@@ -149,7 +149,7 @@ export default {
             error: 'Invalid request',
             message: 'Send a POST request to / with a JSON body containing stopIds',
             example: {
-              stopIds: ['101028', '101039', '100998', '100988']
+              stopIds: ['101011', '100991', '100950', '100932']
             }
           }, null, 2),
           {
@@ -183,7 +183,7 @@ export default {
             error: 'Invalid stopIds',
             message: 'Request body must contain a non-empty array of stopIds',
             example: {
-              stopIds: ['101028', '101039']
+              stopIds: ['101011', '100991']
             }
           }, null, 2),
           {
